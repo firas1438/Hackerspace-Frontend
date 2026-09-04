@@ -4,18 +4,18 @@ import { ChevronUp } from "lucide-react";
 import Wrapper from "@/components/wrapper";
 
 const footerLinks = [
-  { title: "About", href: "#about" },
-  { title: "Services", href: "#services" },
-  { title: "Events", href: "#events" },
-  { title: "Process", href: "#process" },
-  { title: "FAQ", href: "#faq" },
-  { title: "Contact", href: "#contact" },
+  { title: "About", href: "/#about" },
+  { title: "Services", href: "/#services" },
+  { title: "Events", href: "/#events" },
+  { title: "Process", href: "/#process" },
+  { title: "FAQ", href: "/#faq" },
+  { title: "Contact", href: "/#contact" },
 ];
 
 const socialLinks = [
-  { title: "GitHub", href: "https://github.com" },
-  { title: "LinkedIn", href: "https://www.linkedin.com" },
+  { title: "Facebook", href: "https://facebook.com" },
   { title: "Instagram", href: "https://www.instagram.com" },
+  { title: "LinkedIn", href: "https://www.linkedin.com" },
 ];
 
 const Footer = () => {
@@ -23,7 +23,7 @@ const Footer = () => {
     <footer className="relative w-full overflow-hidden bg-black">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 bg-[url('/pattern2.png')] bg-center bg-cover bg-no-repeat opacity-25"
+        className="pointer-events-none absolute inset-0 z-0 bg-[url('/pattern2.png')] bg-center bg-cover bg-no-repeat opacity-15"
       />
       <Wrapper className="relative z-10 pb-10 pt-14 lg:pb-10 lg:pt-14">
         <div className="flex flex-col gap-14">
@@ -98,7 +98,7 @@ const Footer = () => {
             </nav>
           </div>
 
-          <div className="flex justify-center border-t border-white/15 pt-8 text-center text-sm text-white/60">
+          <div className="flex justify-center border-t border-white/5 pt-8 text-center text-sm text-white/60">
             <p>
               © {new Date().getFullYear()} Hackerspace. All rights reserved.
             </p>

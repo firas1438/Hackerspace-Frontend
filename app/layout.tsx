@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   description: "Discover hackathons and events happening nearby.",
 };
 
+import { Providers } from "@/app/providers";
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -34,7 +36,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       )}
       data-scroll-behavior="smooth"
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

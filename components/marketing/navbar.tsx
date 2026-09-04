@@ -22,27 +22,27 @@ import { useState } from "react";
 const navigationData = [
   {
     title: "About",
-    href: "#about",
+    href: "/#about",
   },
   {
     title: "Services",
-    href: "#services",
+    href: "/#services",
   },
   {
     title: "Process",
-    href: "#process",
+    href: "/#process",
   },
   {
     title: "Events",
-    href: "#events",
+    href: "/#events",
   },
   {
     title: "FAQ",
-    href: "#faq",
+    href: "/#faq",
   },
   {
     title: "Contact",
-    href: "#contact",
+    href: "/#contact",
   },
 ];
 

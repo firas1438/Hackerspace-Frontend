@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -35,7 +36,7 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-5 lg:justify-start">
+            <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-4 lg:justify-start">
               <Button
                 size="lg"
                 className="group h-13 px-7 text-sm font-semibold transition-all active:scale-95"
@@ -43,14 +44,16 @@ const HeroSection = () => {
                 Browse events
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button
-                size="lg"
-                variant="secondary"
-                className="group h-13 px-7 text-sm font-semibold transition-all active:scale-95"
-              >
-                Login Now
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <Link href="/login">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="group h-13 px-7 text-sm font-semibold transition-all active:scale-95"
+                >
+                  Login Now
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
             </div>
 
             <div className="flex justify-center lg:block">
