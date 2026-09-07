@@ -37,13 +37,15 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-4 lg:justify-start">
-              <Button
-                size="lg"
-                className="group h-13 px-7 text-sm font-semibold transition-all active:scale-95"
-              >
-                Browse events
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <Link href="/events">
+                <Button
+                  size="lg"
+                  className="group h-13 px-7 text-sm font-semibold transition-all active:scale-95"
+                >
+                  Browse events
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
               <Link href="/login">
                 <Button
                   size="lg"

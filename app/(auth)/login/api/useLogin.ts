@@ -19,7 +19,7 @@ export const useLogin = (onServerError?: (msg: string) => void) => {
     mutationFn: (data: LoginFormData) => loginUserApi(data),
     onSuccess: () => {
       login();
-      router.push("/");
+      router.push("/dashboard");
     },
     onError: (error: any) => {
       const message =

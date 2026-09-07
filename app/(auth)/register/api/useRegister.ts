@@ -27,7 +27,7 @@ export const useRegister = (onServerError?: (msg: string) => void) => {
     mutationFn: (data: RegisterFormData) => registerUserApi(data),
     onSuccess: () => {
       login();
-      router.push("/");
+      router.push("/dashboard");
     },
     onError: (error: any) => {
       const message =

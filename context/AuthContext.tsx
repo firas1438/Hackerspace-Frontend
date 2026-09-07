@@ -19,9 +19,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const checkSession = async () => {
       try {
-        await apiClient.post("/auth/refresh");
-        setIsAuthenticated(true);
-      } catch (err) {
+        const response = await apiClient.get<{ authenticated: boolean }>("/auth/session");
+        setIsAuthenticated(Boolean(response.data?.authenticated));
+      } catch {
         setIsAuthenticated(false);
       } finally {
         setIsLoading(false);

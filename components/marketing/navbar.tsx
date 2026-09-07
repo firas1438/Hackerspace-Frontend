@@ -47,17 +47,19 @@ const navigationData = [
 ];
 
 const CollaborateButton = ({ className }: { className?: string }) => (
-  <Button
-    className={cn(
-      "relative rounded-full p-1 ps-5 pe-12 group w-fit overflow-hidden",
-      className,
-    )}
-  >
-    <span className="relative z-10 text-xs">Browse events</span>
-    <div className="absolute inset-y-1 right-1.5 aspect-square rounded-full bg-background text-foreground flex items-center justify-center transition-transform duration-300 group-hover:rotate-45">
-      <ArrowUpRight className="size-4" />
-    </div>
-  </Button>
+  <Link href="/events">
+    <Button
+      className={cn(
+        "relative rounded-full p-1 ps-5 pe-12 group w-fit overflow-hidden",
+        className,
+      )}
+    >
+      <span className="relative z-10 text-xs">Browse events</span>
+      <div className="absolute inset-y-1 right-1.5 aspect-square rounded-full bg-background text-foreground flex items-center justify-center transition-transform duration-300 group-hover:rotate-45">
+        <ArrowUpRight className="size-4" />
+      </div>
+    </Button>
+  </Link>
 );
 
 const Navbar = () => {
@@ -95,7 +97,9 @@ const Navbar = () => {
             </NavigationMenu>
           </div>
 
-          <CollaborateButton className="hidden shrink-0 lg:flex" />
+          <div className="hidden shrink-0 lg:flex">
+            <CollaborateButton />
+          </div>
 
           <div className="flex shrink-0 lg:hidden">
             <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>

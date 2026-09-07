@@ -2,6 +2,7 @@ import Image from "next/image";
 import Wrapper from "@/components/wrapper";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 const metrics = [
   { value: "36+", label: "events discovered" },
@@ -30,12 +31,14 @@ const AboutSection = () => {
               ideas into something real.
             </p>
 
-            <Button className="group relative h-12 w-fit overflow-hidden rounded-full p-1 ps-6 pe-14">
-              <span className="relative z-10 text-xs">Explore events</span>
-              <span className="absolute inset-y-1 right-1.5 flex aspect-square items-center justify-center rounded-full bg-background text-foreground transition-transform duration-300 group-hover:rotate-45">
-                <ArrowUpRight className="size-4" />
-              </span>
-            </Button>
+            <Link href="/events">
+              <Button className="group relative h-12 w-fit overflow-hidden rounded-full p-1 ps-6 pe-14">
+                <span className="relative z-10 text-xs">Explore events</span>
+                <span className="absolute inset-y-1 right-1.5 flex aspect-square items-center justify-center rounded-full bg-background text-foreground transition-transform duration-300 group-hover:rotate-45">
+                  <ArrowUpRight className="size-4" />
+                </span>
+              </Button>
+            </Link>
           </div>
         </div>
 
