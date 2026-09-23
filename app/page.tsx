@@ -7,6 +7,7 @@ import ProcessSection from "@/components/marketing/process-section";
 import ContactSection from "@/components/marketing/contact-section";
 import { FaqSection } from "@/components/marketing/faq-section";
 import EventsSection from "@/components/marketing/events-section";
+import CtaSection from "@/components/marketing/cta-section";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <ProcessSection />
         <FaqSection />
         <ContactSection />
+        <CtaSection />
       </main>
       <Footer />
     </div>

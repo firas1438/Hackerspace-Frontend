@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const ContactSection = () => {
   return (
     <section id="contact" className="w-full bg-white text-foreground">
-      <Wrapper className="py-20 sm:py-20 lg:py-24">
+      <Wrapper className="pt-20 sm:pt-20 lg:pt-20">
         <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-24">
           <div>
             <h2 className="max-w-xl text-4xl font-medium leading-tight tracking-tight sm:text-6xl">

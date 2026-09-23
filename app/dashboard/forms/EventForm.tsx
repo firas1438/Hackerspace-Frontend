@@ -64,7 +64,11 @@ export function EventForm({
     <form onSubmit={handleSubmit(onSubmit)} className="grid gap-5">
       <div className="grid gap-2">
         <Label htmlFor="title">Title</Label>
-        <Input id="title" placeholder="Global AI Hackathon" {...register("title")} />
+        <Input
+          id="title"
+          placeholder="Global AI Hackathon"
+          {...register("title")}
+        />
         {errors.title && (
           <p className="text-xs text-destructive">{errors.title.message}</p>
         )}
@@ -74,10 +78,11 @@ export function EventForm({
         <div className="flex items-baseline justify-between">
           <Label htmlFor="summary">Summary</Label>
           <span
-            className={`text-xs tabular-nums ${summaryValue.length >= 130
-              ? "text-red-500"
-              : "text-muted-foreground"
-              }`}
+            className={`text-xs tabular-nums ${
+              summaryValue.length >= 130
+                ? "text-red-500"
+                : "text-muted-foreground"
+            }`}
           >
             {summaryValue.length}/{SUMMARY_MAX}
           </span>
@@ -85,14 +90,16 @@ export function EventForm({
         <Textarea
           id="summary"
           rows={2}
-          placeholder="Short overview shown on the event card..."
+          placeholder="Short overview on the event..."
           maxLength={SUMMARY_MAX}
           {...register("summary")}
         />
         {errors.summary ? (
           <p className="text-xs text-destructive">{errors.summary.message}</p>
         ) : (
-          <p className="text-xs text-muted-foreground">Appears on the event card and hero. Keep it concise.</p>
+          <p className="text-xs text-muted-foreground">
+            Appears on the event card and hero. Keep it concise.
+          </p>
         )}
       </div>
 
@@ -105,7 +112,9 @@ export function EventForm({
           {...register("description")}
         />
         {errors.description && (
-          <p className="text-xs text-destructive">{errors.description.message}</p>
+          <p className="text-xs text-destructive">
+            {errors.description.message}
+          </p>
         )}
       </div>
 
@@ -133,11 +142,13 @@ export function EventForm({
                   </SelectValue>
                 </SelectTrigger>
                 <SelectContent>
-                  {(Object.keys(EVENT_TYPE_LABELS) as EventType[]).map((type) => (
-                    <SelectItem key={type} value={type}>
-                      {EVENT_TYPE_LABELS[type]}
-                    </SelectItem>
-                  ))}
+                  {(Object.keys(EVENT_TYPE_LABELS) as EventType[]).map(
+                    (type) => (
+                      <SelectItem key={type} value={type}>
+                        {EVENT_TYPE_LABELS[type]}
+                      </SelectItem>
+                    ),
+                  )}
                 </SelectContent>
               </Select>
             )}
@@ -184,9 +195,15 @@ export function EventForm({
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="grid gap-2">
           <Label htmlFor="location">Location</Label>
-          <Input id="location" placeholder="Tech Hub" {...register("location")} />
+          <Input
+            id="location"
+            placeholder="Choose a location"
+            {...register("location")}
+          />
           {errors.location && (
-            <p className="text-xs text-destructive">{errors.location.message}</p>
+            <p className="text-xs text-destructive">
+              {errors.location.message}
+            </p>
           )}
         </div>
         <div className="grid gap-2">
@@ -224,14 +241,20 @@ export function EventForm({
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="grid gap-2">
-          <Label htmlFor="startDate">Start</Label>
-          <Input id="startDate" type="datetime-local" {...register("startDate")} />
+          <Label htmlFor="startDate">Start date</Label>
+          <Input
+            id="startDate"
+            type="datetime-local"
+            {...register("startDate")}
+          />
           {errors.startDate && (
-            <p className="text-xs text-destructive">{errors.startDate.message}</p>
+            <p className="text-xs text-destructive">
+              {errors.startDate.message}
+            </p>
           )}
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="endDate">End</Label>
+          <Label htmlFor="endDate">End date</Label>
           <Input id="endDate" type="datetime-local" {...register("endDate")} />
         </div>
       </div>
@@ -246,6 +269,9 @@ export function EventForm({
         {errors.imageUrl && (
           <p className="text-xs text-destructive">{errors.imageUrl.message}</p>
         )}
+        <p className="text-xs text-muted-foreground">
+          Use image hosting platforms like Imgur, Postimages, or Cloudinary.
+        </p>
       </div>
 
       <div className="grid gap-2">

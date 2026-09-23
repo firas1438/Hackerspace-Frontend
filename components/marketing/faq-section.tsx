@@ -84,7 +84,7 @@ export function FaqSection() {
           <div className="order-1 flex w-full flex-col lg:order-2 lg:w-[40%]">
             <div className="flex flex-col space-y-4 mb-10 items-start text-left">
               <h2 className="text-4xl font-medium tracking-tight text-primary-foreground sm:text-6xl max-w-2xl leading-[1.1]">
-                Questions, answered.
+                Questions? answered.
               </h2>
               <p className="text-lg text-primary-foreground/75 leading-relaxed max-w-2xl">
                 A few quick answers about finding your place in the community.

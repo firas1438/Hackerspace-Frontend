@@ -62,16 +62,16 @@ const HeroSection = () => {
               <SocialProof />
             </div>
           </div>
-          <div className="relative w-full max-w-2xl lg:ml-auto">
-            <div className="relative z-10 w-full overflow-hidden rounded-2xl">
-              {/* <Image
-                src="/test2.png"
-                alt="Hackerspace roadmap"
-                width={1536}
-                height={1024}
+          <div className="relative w-full lg:ml-auto flex justify-center">
+            <div className="relative z-10 w-full overflow-hidden hidden sm:block max-w-xs md:max-w-sm lg:max-w-lg flex">
+              <Image
+                src="/hero.png"
+                alt="Hackerspace"
+                width={1076}
+                height={764}
                 priority
                 className="h-auto w-full"
-              /> */}
+              />
             </div>
           </div>
         </div>
