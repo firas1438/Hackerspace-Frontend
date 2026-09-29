@@ -63,12 +63,12 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="relative w-full lg:ml-auto flex justify-center">
-            <div className="relative z-10 w-full overflow-hidden hidden sm:block max-w-xs md:max-w-sm lg:max-w-lg flex">
+            <div className="relative z-10 w-full overflow-hidden hidden sm:block max-w-xs md:max-w-sm lg:max-w-md flex">
               <Image
                 src="/hero.png"
                 alt="Hackerspace"
-                width={1076}
-                height={764}
+                width={909}
+                height={818}
                 priority
                 className="h-auto w-full"
               />

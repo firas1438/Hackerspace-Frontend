@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
-import { CalendarOff, Eye, Pencil, Plus, Trash2 } from "lucide-react";
+import { CalendarOff, Pencil, Plus, Trash2 } from "lucide-react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -64,47 +63,34 @@ export function DashboardEvents() {
     const isPast = event.status === "PAST";
 
     return (
-      <div className="flex w-full items-center justify-between gap-2">
-        <Link href={`/events/${event.id}`}>
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            className="h-8 gap-1.5 rounded-full px-3 text-xs"
-          >
-            <Eye className="size-3.5" />
-            View
-          </Button>
-        </Link>
-        <div className="flex items-center gap-1.5">
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            disabled={isPast}
-            title={
-              isPast
-                ? "Past events cannot be modified"
-                : "Edit event"
-            }
-            onClick={() => openEdit(event)}
-            className="h-8 gap-1.5 rounded-full px-3 text-xs"
-          >
-            <Pencil className="size-3.5" />
-            Edit
-          </Button>
-          <Button
-            type="button"
-            variant="destructive"
-            size="sm"
-            title="Delete event"
-            onClick={() => setDeletingEvent(event)}
-            className="h-8 gap-1.5 rounded-full px-3 text-xs"
-          >
-            <Trash2 className="size-3.5" />
-            Delete
-          </Button>
-        </div>
+      <div className="flex w-full items-center justify-end gap-1.5">
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          disabled={isPast}
+          title={
+            isPast
+              ? "Past events cannot be modified"
+              : "Edit event"
+          }
+          onClick={() => openEdit(event)}
+          className="h-8 gap-1.5 rounded-full px-3 text-xs"
+        >
+          <Pencil className="size-3.5" />
+          Edit
+        </Button>
+        <Button
+          type="button"
+          variant="destructive"
+          size="sm"
+          title="Delete event"
+          onClick={() => setDeletingEvent(event)}
+          className="h-8 gap-1.5 rounded-full px-3 text-xs"
+        >
+          <Trash2 className="size-3.5" />
+          Delete
+        </Button>
       </div>
     );
   };

@@ -79,8 +79,7 @@ export function EventsListing() {
 
               {isError && (
                 <div className="mb-6 rounded-md bg-destructive/10 px-4 py-3 text-sm text-destructive">
-                  Could not load events. Make sure the API is running and try
-                  again.
+                  Could not load events, Please try again later.
                 </div>
               )}
 

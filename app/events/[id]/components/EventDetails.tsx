@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   AlertCircle,
   ArrowLeft,
@@ -58,6 +59,7 @@ function formatEventDate(startDate: string, endDate?: string | null) {
 }
 
 export function EventDetails({ id }: EventDetailsProps) {
+  const router = useRouter();
   const { data: event, isLoading, isError } = useEvent(id);
 
   const imageUrl = event?.imageUrl || "/fallback.png";
@@ -114,13 +116,15 @@ export function EventDetails({ id }: EventDetailsProps) {
         ) : (
           <Wrapper className="relative z-10 pb-12 pt-28 sm:pb-14 sm:pt-32 lg:pb-14 lg:pt-24">
             <div className="flex flex-col gap-6">
-              <Link
-                href="/events"
-                className="inline-flex items-center text-md font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+              <Button
+                type="button"
+                variant="ghost"
+                onClick={() => router.back()}
+                className="w-fit h-auto p-0 text-sm font-medium text-primary-foreground/80 hover:bg-transparent hover:text-primary-foreground capitalize"
               >
-                <ArrowLeft className="mr-2 size-4" />
-                Back to events
-              </Link>
+                <ArrowLeft className="mr-1 size-4" />
+                Return
+              </Button>
 
               <div className="max-w-4xl space-y-4">
                 <div className="flex flex-wrap items-center gap-2">

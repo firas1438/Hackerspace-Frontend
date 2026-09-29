@@ -1,7 +1,7 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarDays, LogOut, UserRound } from "lucide-react";
+import { CalendarDays, LogOut, UserRound, Globe } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -99,17 +99,18 @@ export function DashboardHeader() {
               <DropdownMenuItem className="md:hidden">
                 <Link href="/dashboard/events" className="flex w-full items-center">
                   <CalendarDays className="mr-2 size-4" />
-                  Events
+                  My Events
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Link href="/dashboard/profile" className="flex w-full items-center">
                   <UserRound className="mr-2 size-4" />
-                  Profile
+                  My Profile
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="sm:hidden">
                 <Link href="/events" className="flex w-full items-center">
+                  <Globe className="mr-2 size-4" />
                   Browse events
                 </Link>
               </DropdownMenuItem>
