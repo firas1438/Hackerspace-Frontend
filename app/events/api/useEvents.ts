@@ -14,9 +14,10 @@ import {
 } from "@/lib/schemas/eventSchemas";
 
 export interface EventQueryParams {
-  q: string;
-  filters: EventFilters;
-  page: number;
+  q?: string;
+  filters?: Partial<EventFilters>;
+  page?: number;
+  size?: number;
 }
 
 const appendList = (
@@ -28,24 +29,25 @@ const appendList = (
 };
 
 export const fetchEventsApi = async ({
-  q,
-  filters,
-  page,
-}: EventQueryParams): Promise<EventPage> => {
+  q = "",
+  filters = {},
+  page = 0,
+  size = EVENTS_PAGE_SIZE,
+}: EventQueryParams = {}): Promise<EventPage> => {
   const params = new URLSearchParams();
 
   if (q.trim()) {
     params.set("q", q.trim());
   }
 
-  appendList(params, "types", filters.types);
-  appendList(params, "formats", filters.formats);
-  appendList(params, "cities", filters.cities);
-  appendList(params, "statuses", filters.statuses);
-  appendList(params, "tags", filters.tags);
+  appendList(params, "types", filters.types ?? []);
+  appendList(params, "formats", filters.formats ?? []);
+  appendList(params, "cities", filters.cities ?? []);
+  appendList(params, "statuses", filters.statuses ?? []);
+  appendList(params, "tags", filters.tags ?? []);
 
   params.set("page", String(page));
-  params.set("size", String(EVENTS_PAGE_SIZE));
+  params.set("size", String(size));
 
   const response = await apiClient.get(`/events?${params.toString()}`);
   return eventPageSchema.parse(response.data);

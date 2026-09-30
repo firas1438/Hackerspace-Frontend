@@ -5,10 +5,10 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 const metrics = [
-  { value: "36+", label: "events discovered" },
-  { value: "95%", label: "builder satisfaction rate" },
-  { value: "24k", label: "monthly community visits" },
-  { value: "98+", label: "active communities" },
+  { value: "50+", label: "Events listed" },
+  { value: "100%", label: "Tech focused events" },
+  { value: "2k", label: "Monthly community visits" },
+  { value: "10+", label: "Active organizers" },
 ];
 
 const AboutSection = () => {

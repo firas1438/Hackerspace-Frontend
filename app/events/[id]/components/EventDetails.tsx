@@ -23,6 +23,7 @@ import {
   EVENT_TYPE_LABELS,
 } from "@/lib/schemas/eventSchemas";
 import { useEvent } from "../../api/useEvents";
+import { RecentEvents } from "./RecentEvents";
 
 interface EventDetailsProps {
   id: string;
@@ -97,8 +98,8 @@ export function EventDetails({ id }: EventDetailsProps) {
           </Wrapper>
         ) : isError || !event ? (
           <Wrapper className="relative z-10 flex min-h-screen flex-col items-center justify-center py-20 text-center">
-            <AlertCircle className="mx-auto size-20 text-primary-foreground/75" strokeWidth={1.5} />
-            <h1 className="mt-6 text-3xl font-medium tracking-tight sm:text-4xl">Event not found</h1>
+            <AlertCircle className="mx-auto size-22 text-primary-foreground/75" strokeWidth={1.5} />
+            <h1 className="mt-6 text-3xl font-medium tracking-tight">Event not found</h1>
             <p className="mx-auto mt-3 max-w-md text-lg text-primary-foreground/75">
               The event you are looking for does not exist or may have been removed.
             </p>
@@ -120,13 +121,13 @@ export function EventDetails({ id }: EventDetailsProps) {
                 type="button"
                 variant="ghost"
                 onClick={() => router.back()}
-                className="w-fit h-auto p-0 text-sm font-medium text-primary-foreground/80 hover:bg-transparent hover:text-primary-foreground capitalize"
+                className="w-fit h-auto p-0 text-md text-primary-foreground/80 hover:bg-transparent hover:text-primary-foreground capitalize"
               >
                 <ArrowLeft className="mr-1 size-4" />
                 Return
               </Button>
 
-              <div className="max-w-4xl space-y-4">
+              <div className="max-w-4xl space-y-5">
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge className="rounded-full bg-background/90 px-3 py-1 text-xs normal-case tracking-wide text-foreground">
                     {EVENT_TYPE_LABELS[event.type]}
@@ -139,15 +140,18 @@ export function EventDetails({ id }: EventDetailsProps) {
                   </Badge>
                 </div>
 
-                <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-                  {event.title}{event.status ? ` [${event.status}]` : ""}
-                </h1>
+                <div className="space-y-3 sm:space-y-2">
+                  <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+                    {event.title}{event.status ? ` [${event.status}]` : ""}
+                  </h1>
 
-                {event.summary ? (
-                  <p className="text-lg leading-relaxed text-primary-foreground/85">
-                    {event.summary}
-                  </p>
-                ) : null}
+                  {event.summary ? (
+                    <p className="text-lg leading-relaxed text-primary-foreground/85">
+                      {event.summary}
+                    </p>
+                  ) : null}
+
+                </div>
               </div>
             </div>
           </Wrapper>
@@ -155,7 +159,7 @@ export function EventDetails({ id }: EventDetailsProps) {
       </section>
 
       {!isLoading && !isError && event ? (
-        <Wrapper className="py-10 lg:py-14">
+        <Wrapper className="pb-10 pt-14 lg:pb-8 lg:pt-14">
           <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
             <div className="min-w-0 flex-1 space-y-8">
               <div className="relative aspect-16/9 overflow-hidden rounded-md bg-muted ring-1 ring-foreground/5">
@@ -330,6 +334,10 @@ export function EventDetails({ id }: EventDetailsProps) {
           </div>
         </Wrapper>
       ) : null}
+
+      {!isLoading && !isError && event && (
+        <RecentEvents currentEventId={id} />
+      )}
     </div>
   );
 }
