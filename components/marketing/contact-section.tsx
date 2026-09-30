@@ -1,7 +1,7 @@
 import { Clock3, Mail, MapPin } from "lucide-react";
 
 import Wrapper from "@/components/wrapper";
-import { Button } from "@/components/ui/button";
+import { ContactForm } from "@/components/marketing/forms/ContactForm";
 
 const ContactSection = () => {
   return (
@@ -71,49 +71,7 @@ const ContactSection = () => {
               aria-hidden="true"
               className="pointer-events-none absolute -right-3 -top-7 z-0 size-32 text-primary/70 bg-[radial-gradient(currentColor_1px,transparent_1px)] bg-size-[0.75rem_0.75rem] sm:-right-8 sm:-top-10 sm:size-40"
             />
-            <form className="relative z-10 flex flex-col gap-5 rounded-xs border border-border bg-muted p-6 sm:p-8">
-              <div className="grid gap-5 sm:grid-cols-2">
-                <label className="flex flex-col gap-2 text-sm font-medium">
-                  Name
-                  <input
-                    name="name"
-                    type="text"
-                    placeholder="Your name"
-                    className="h-12 rounded-md border border-border bg-background px-4 text-base font-normal outline-none placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  />
-                </label>
-                <label className="flex flex-col gap-2 text-sm font-medium">
-                  Email
-                  <input
-                    name="email"
-                    type="email"
-                    placeholder="you@example.com"
-                    className="h-12 rounded-md border border-border bg-background px-4 text-base font-normal outline-none placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  />
-                </label>
-              </div>
-              <label className="flex flex-col gap-2 text-sm font-medium">
-                Subject
-                <input
-                  name="subject"
-                  type="text"
-                  placeholder="What can we help with?"
-                  className="h-12 rounded-md border border-border bg-background px-4 text-base font-normal outline-none placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
-                />
-              </label>
-              <label className="flex flex-col gap-2 text-sm font-medium">
-                Message
-                <textarea
-                  name="message"
-                  placeholder="Tell us a little more..."
-                  rows={6}
-                  className="resize-none rounded-md border border-border bg-background px-4 py-3 text-base font-normal outline-none placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
-                />
-              </label>
-              <Button type="submit" className="mt-2 w-fit">
-                Send message
-              </Button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </Wrapper>
