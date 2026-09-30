@@ -8,7 +8,7 @@ const metrics = [
   { value: "50+", label: "Events listed" },
   { value: "100%", label: "Tech focused events" },
   { value: "2k", label: "Monthly community visits" },
-  { value: "10+", label: "Active organizers" },
+  { value: "20+", label: "Active organizers" },
 ];
 
 const AboutSection = () => {

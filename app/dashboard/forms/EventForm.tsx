@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { ImageUpload } from "@/components/ui/image-upload";
 import {
   Select,
   SelectContent,
@@ -260,18 +261,21 @@ export function EventForm({
       </div>
 
       <div className="grid gap-2">
-        <Label htmlFor="imageUrl">Image URL</Label>
-        <Input
-          id="imageUrl"
-          placeholder="https://..."
-          {...register("imageUrl")}
+        <Label>Cover Image</Label>
+        <Controller
+          control={control}
+          name="imageUrl"
+          render={({ field }) => (
+            <ImageUpload
+              value={field.value ?? ""}
+              onChange={(url) => field.onChange(url)}
+              disabled={isPending}
+            />
+          )}
         />
         {errors.imageUrl && (
           <p className="text-xs text-destructive">{errors.imageUrl.message}</p>
         )}
-        <p className="text-xs text-muted-foreground">
-          Use image hosting platforms like Imgur, Postimages, or Cloudinary.
-        </p>
       </div>
 
       <div className="grid gap-2">

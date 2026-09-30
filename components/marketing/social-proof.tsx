@@ -14,7 +14,7 @@ const SocialProof = () => {
         ))}
       </div>
       <p className="text-sm font-medium text-white/75">
-        Join more than <span className="text-white/75 font-bold">1,000+</span> users now.
+        Join more than <span className="text-white/75 font-bold">20+</span> active organizers now!
       </p>
     </div>
   );

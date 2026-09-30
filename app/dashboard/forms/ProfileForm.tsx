@@ -1,13 +1,13 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { ImageUpload } from "@/components/ui/image-upload";
 import {
   profileSchema,
   type Profile,
@@ -25,6 +25,7 @@ export function ProfileForm({ profile }: ProfileFormProps) {
     register,
     handleSubmit,
     watch,
+    control,
     formState: { errors },
   } = useForm<ProfileFormData>({
     resolver: zodResolver(profileSchema),
@@ -37,7 +38,6 @@ export function ProfileForm({ profile }: ProfileFormProps) {
     },
   });
 
-  const logoUrl = watch("logoUrl");
   const organizationName = watch("organizationName");
 
   const onSubmit = (data: ProfileFormData) => {
@@ -46,13 +46,19 @@ export function ProfileForm({ profile }: ProfileFormProps) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <div className="flex items-center gap-5 border-b pb-6">
-        <Avatar className="size-20 border ring-2 ring-primary/10">
-          {logoUrl ? <AvatarImage src={logoUrl} alt="" className="object-cover" /> : null}
-          <AvatarFallback className="bg-primary/10 text-lg font-semibold text-primary">
-            {(organizationName || profile.email).slice(0, 2).toUpperCase()}
-          </AvatarFallback>
-        </Avatar>
+      <div className="flex flex-col sm:flex-row sm:items-center gap-6 border-b pb-6">
+        <Controller
+          control={control}
+          name="logoUrl"
+          render={({ field }) => (
+            <ImageUpload
+              value={field.value ?? ""}
+              onChange={(url) => field.onChange(url)}
+              disabled={updateProfile.isPending}
+              aspectRatio="avatar"
+            />
+          )}
+        />
         <div className="space-y-1">
           <h2 className="text-xl font-semibold tracking-tight">
             {organizationName || "Organization Profile"}
@@ -92,18 +98,6 @@ export function ProfileForm({ profile }: ProfileFormProps) {
         />
         {errors.bio && (
           <p className="text-xs text-destructive">{errors.bio.message}</p>
-        )}
-      </div>
-
-      <div className="grid gap-2">
-        <Label htmlFor="logoUrl">Logo URL</Label>
-        <Input
-          id="logoUrl"
-          placeholder="https://..."
-          {...register("logoUrl")}
-        />
-        {errors.logoUrl && (
-          <p className="text-xs text-destructive">{errors.logoUrl.message}</p>
         )}
       </div>
 
