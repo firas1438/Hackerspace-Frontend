@@ -13,9 +13,9 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { title: "Facebook", href: "https://facebook.com" },
-  { title: "Instagram", href: "https://www.instagram.com" },
-  { title: "LinkedIn", href: "https://www.linkedin.com" },
+  { title: "Facebook", href: "https://www.facebook.com/hackerspacehub/" },
+  { title: "Instagram", href: "https://www.instagram.com/hackerspacetn/" },
+  { title: "LinkedIn", href: "https://www.linkedin.com/company/hackerspacetn/" },
 ];
 
 const Footer = () => {
