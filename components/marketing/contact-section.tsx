@@ -28,10 +28,10 @@ const ContactSection = () => {
                     Email
                   </p>
                   <a
-                    href="mailto:contact.hackerspace@gmail.com"
+                    href="mailto:contact@hackerspace.tn"
                     className="mt-1 block text-base font-medium hover:text-primary"
                   >
-                    contact.hackerspace@gmail.com
+                    contact@hackerspace.tn
                   </a>
                 </div>
               </div>

@@ -70,10 +70,10 @@ const Footer = () => {
                 Have an idea or project to share?
               </p>
               <a
-                href="mailto:contact.hackerspace@gmail.com"
+                href="mailto:contact@hackerspace.tn"
                 className="mt-4 inline-block text-sm font-medium text-white/60 transition-colors hover:text-primary"
               >
-                contact.hackerspace@gmail.com
+                contact@hackerspace.tn
               </a>
             </div>
 
