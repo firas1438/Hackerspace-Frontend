@@ -4,6 +4,7 @@ export const eventTypeSchema = z.enum([
   "HACKATHON",
   "COMPETITION",
   "WORKSHOP",
+  "BOOTCAMP",
   "CONFERENCE",
 ]);
 
@@ -67,6 +68,7 @@ export const EVENT_TYPE_LABELS: Record<EventType, string> = {
   HACKATHON: "Hackathon",
   COMPETITION: "Competition",
   WORKSHOP: "Workshop",
+  BOOTCAMP: "Bootcamp",
   CONFERENCE: "Conference",
 };
 
