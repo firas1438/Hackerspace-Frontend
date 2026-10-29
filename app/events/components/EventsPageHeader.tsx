@@ -24,7 +24,7 @@ export function EventsPageHeader({
             </h1>
             <p className="text-lg leading-relaxed text-primary-foreground/75">
               Discover hackathons, workshops, competitions, and conferences
-              happening across Morocco and online.
+              happening across Tunisia and online.
             </p>
           </div>
           <EventSearchBar value={searchQuery} onChange={onSearchChange} />
